@@ -1,0 +1,4 @@
+# English strings go here for Rails i18n
+en:
+  project_module_requireattachment: "Require an attachment to be able to close an issue"
+  issue_requires_attachment: "An attachment is required to be able to close the issue"

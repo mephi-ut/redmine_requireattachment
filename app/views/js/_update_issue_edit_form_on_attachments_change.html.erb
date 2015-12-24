@@ -1,0 +1,6 @@
+<script>
+	$(function(){
+		var file_selectors = $('#issue-form .file_selector');
+		file_selectors.change(function(){updateIssueFrom('<%=escape_javascript project_issue_form_path(@project, :id => @issue, :format => 'js')%>'+'&attachments_count='+file_selectors[0].files.length)});
+	});
+</script>
