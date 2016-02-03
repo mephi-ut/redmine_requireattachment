@@ -2,3 +2,5 @@
 ru:
   project_module_requireattachment: "Требовать вложение для закрытия задачи"
   issue_requires_attachment: "Перед закрытием необходимо добавить хотя бы одно вложение"
+  requireattacment_settings: "Настройки"
+  field_requireattachment_forbidstatuses: "Запретить переход на следующие статусы"

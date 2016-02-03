@@ -28,10 +28,10 @@ module Requireattachment
 				# If can close without attachment then close
 				return update_without_requireattachment if can_close_check_attachment
 
-				# Checking if it is issues closing event. Otherwise just run the old method
+				# Checking if it is issues closing event or it's a forbidded issue status via the plugins settings. Otherwise just run the old method
 				@oldstatus = @issue.status
 				@newstatus = IssueStatus.find(params[:issue][:status_id])
-				return update_without_requireattachment unless @oldstatus.is_closed == false and @newstatus.is_closed = true
+				return update_without_requireattachment unless (@oldstatus.is_closed == false and @newstatus.is_closed == true) or not Setting.plugin_redmine_requireattachment["requireattachment_forbidstatus_#{@newstatus.id.to_s}"].nil?
 
 				# If not then it's time to disappoint the user and tell him to make an attachment
 				#@issue.errors.add :attachments, :issue_requires_attachment

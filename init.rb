@@ -9,6 +9,8 @@ Redmine::Plugin.register :redmine_requireattachment do
   author 'Dmitry Yu Okunev'
   description "Plugin adds role-based permission to control who can close issues without any attachment. Yes, it's very specific use case."
   version '0.1'
+  settings :default => {}, :partial => 'requireattachment/settings'
+
   project_module :requireattachment do
     permission :close_without_attachment, :projects => :close_without_attachment
   end
