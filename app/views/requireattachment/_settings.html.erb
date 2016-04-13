@@ -1,0 +1,10 @@
+<fieldset>
+  <legend><%= l(:requireattacment_settings) %></legend>
+  <p>
+    <%= l(:field_requireattachment_forbidstatuses) %>:
+    <% IssueStatus.all.each do |status| %>
+      <br><%= check_box_tag "settings[requireattachment_forbidstatus_#{status.id.to_s}]", 1, @settings["requireattachment_forbidstatus_#{status.id.to_s}"] %><%= status.name %>
+    <% end %>
+  </p>
+</fieldset>
+

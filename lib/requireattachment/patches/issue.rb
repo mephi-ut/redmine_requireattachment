@@ -42,7 +42,7 @@ module Requireattachment
 			def new_statuses_allowed_to_with_requireattachment(user=User.current, include_default=false, force_has_attachments=false)
 				@statuses_allowed_to = new_statuses_allowed_to_without_requireattachment(user, include_default)
 				return @statuses_allowed_to if can_close_check_attachment(user, force_has_attachments)
-				return @statuses_allowed_to.reject {|s| s.is_closed}
+				return @statuses_allowed_to.reject {|s| status.id != s.id and (s.is_closed or not Setting.plugin_redmine_requireattachment["requireattachment_forbidstatus_#{s.id.to_s}"].nil?) }
 			end
 		end
 	end
