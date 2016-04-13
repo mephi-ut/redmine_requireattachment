@@ -23,6 +23,9 @@ module Requireattachment
 				# If already closed then there's nothing to do, just run the old method
 				return true if status.is_closed
 
+				# If the user is the admin then he can do everything he want
+				return true if user.admin?
+
 				# If current user is the author of the issue then he CAN close the issue
 				return true if user.id == author_id
 
